@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Current Time</title>
+    <style>
+        #time {
+            font-size: 10em;
+            text-align: center;
+            margin-top: 50vh;
+            transform: translateY(-50%);
+        }
+    </style>
+</head>
+
+<body>
+    <div id="time"></div>
+    <script>
+        function updateTime() {
+            var now = new Date();
+            var hours = now.getHours();
+            var minutes = now.getMinutes();
+            var seconds = now.getSeconds();
+            var ampm = hours >= 12 ? 'PM' : 'AM';
+            hours = hours % 12;
+            hours = hours ? hours : 12;
+            var timeDiv = document.getElementById("time");
+            timeDiv.innerHTML = hours + ':' + (minutes < 10 ? '0' : '') + minutes + ':' + (seconds < 10 ? '0' : '') + seconds + ' ' + ampm;
+        }
+        setInterval(updateTime, 1000);
+    </script>
+</body>
+
+</html>
